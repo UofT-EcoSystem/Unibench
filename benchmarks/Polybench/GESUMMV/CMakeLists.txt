@@ -12,4 +12,4 @@ add_dependencies(supported GESUMMV)
 
 add_test(Polybench_GESUMMV GESUMMV)
 
-install(TARGETS GESUMMV DESTINATION)
+install(TARGETS GESUMMV DESTINATION Polybench)

@@ -13,4 +13,4 @@ add_dependencies(supported SYR2K)
 
 add_test(Polybench_SYR2K SYR2K)
 
-install(TARGETS SYR2K DESTINATION)
+install(TARGETS SYR2K DESTINATION Polybench)

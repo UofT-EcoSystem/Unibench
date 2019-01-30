@@ -12,4 +12,4 @@ add_dependencies(supported MVT)
 
 add_test(Polybench_MVT MVT)
 
-install(TARGETS MVT DESTINATION)
+install(TARGETS MVT DESTINATION Polybench)

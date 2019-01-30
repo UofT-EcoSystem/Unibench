@@ -13,4 +13,4 @@ add_dependencies(supported 3MM)
 
 add_test(Polybench_3MM 3MM)
 
-install(TARGETS 2MM DESTINATION)
+install(TARGETS 3MM DESTINATION Polybench)

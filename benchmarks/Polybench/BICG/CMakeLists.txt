@@ -12,4 +12,4 @@ add_dependencies(supported BICG)
 
 add_test(Polybench_BICG BICG)
 
-install(TARGETS BICG DESTINATION)
+install(TARGETS BICG DESTINATION Polybench)

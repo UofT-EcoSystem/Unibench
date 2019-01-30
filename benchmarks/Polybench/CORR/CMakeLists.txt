@@ -13,4 +13,4 @@ add_dependencies(Polybench CORR)
 
 add_test(Polybench_CORR CORR)
 
-install(TARGETS CORR DESTINATION)
+install(TARGETS CORR DESTINATION Polybench)

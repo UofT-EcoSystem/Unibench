@@ -10,4 +10,4 @@ add_dependencies(Polybench FDTD-2D)
 
 #add_test(Polybench_FDTD-2D FDTD-2D)
 
-install(TARGETS FDTD-2D DESTINATION)
+install(TARGETS FDTD-2D DESTINATION Polybench)

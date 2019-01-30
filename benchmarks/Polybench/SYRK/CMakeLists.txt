@@ -13,4 +13,4 @@ add_dependencies(supported SYRK)
 
 add_test(Polybench_SYRK SYRK)
 
-install(TARGETS SYRK DESTINATION)
+install(TARGETS SYRK DESTINATION Polybench)

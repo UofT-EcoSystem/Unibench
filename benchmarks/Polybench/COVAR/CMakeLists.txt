@@ -13,4 +13,4 @@ add_dependencies(supported COVAR)
 
 add_test(Polybench_COVAR COVAR)
 
-install(TARGETS COVAR DESTINATION)
+install(TARGETS COVAR DESTINATION Polybench)

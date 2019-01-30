@@ -12,4 +12,4 @@ add_dependencies(Polybench ATAX)
 
 #add_test(Polybench_ATAX ATAX)
 
-install(TARGETS ATAX DESTINATION)
+install(TARGETS ATAX DESTINATION Polybench)

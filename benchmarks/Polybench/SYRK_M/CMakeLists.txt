@@ -10,4 +10,4 @@ add_dependencies(Polybench SYRK_M)
 
 #add_test(Polybench_SYRK_M SYRK_M)
 
-install(TARGETS SYRK_M DESTINATION)
+install(TARGETS SYRK_M DESTINATION Polybench)
