@@ -12,3 +12,5 @@ add_dependencies(Polybench CORR)
 #add_dependencies(supported CORR)
 
 add_test(Polybench_CORR CORR)
+
+install(TARGETS CORR DESTINATION)

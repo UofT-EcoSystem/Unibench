@@ -12,3 +12,5 @@ add_dependencies(experiments GEMM)
 add_dependencies(supported GEMM)
 
 add_test(Polybench_GEMM GEMM)
+
+install(TARGETS GEMM DESTINATION)

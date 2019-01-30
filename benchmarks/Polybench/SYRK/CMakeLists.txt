@@ -12,3 +12,5 @@ add_dependencies(experiments SYRK)
 add_dependencies(supported SYRK)
 
 add_test(Polybench_SYRK SYRK)
+
+install(TARGETS SYRK DESTINATION)

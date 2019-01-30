@@ -12,3 +12,5 @@ add_dependencies(experiments 2MM)
 add_dependencies(supported 2MM)
 
 add_test(Polybench_2MM 2MM)
+
+install(TARGETS 2MM DESTINATION)

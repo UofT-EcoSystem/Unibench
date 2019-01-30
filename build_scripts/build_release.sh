@@ -31,12 +31,14 @@ BENCH_BUILD=${BENCH_ROOT}/build-release
 BENCH_SOURCE=${BENCH_ROOT}/Unibench
 BENCH_INSTALL=${BENCH_ROOT}/install-release
 
-cmake -DCMAKE_INSTALL_PREFIX=${BENCH_INSTALL} \ 
+cd $BENCH_BUILD
+echo ${BENCH_SOURCE}
+cmake -DCMAKE_INSTALL_PREFIX=${BENCH_INSTALL} \
 	-DCMAKE_C_COMPILER=clang \
 	-DCMAKE_CXX_COMPILER=clang++ \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_C_FLAGS="-D__NO_MATH_INLINES -U__SSE2_MATH__ -U__SSE_MATH__":${CMAKE_C_FLAGS} \
-	-DRUN_TEST=1 ${BENCH_ROOT}
+	-DRUN_TEST=1 ${BENCH_SOURCE}
 
 if test $? -ne 0
 then
@@ -58,7 +60,7 @@ echo Start building and installing...
 make -j8 install
 if test $? -ne 0
 then
-	echo make install encountered an error
+	echo make encountered an error
 	exit 1
 fi
 

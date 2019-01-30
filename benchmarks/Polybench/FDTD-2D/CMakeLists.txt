@@ -9,3 +9,5 @@ add_executable(FDTD-2D ${SRC_FILES})
 add_dependencies(Polybench FDTD-2D)
 
 #add_test(Polybench_FDTD-2D FDTD-2D)
+
+install(TARGETS FDTD-2D DESTINATION)

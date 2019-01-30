@@ -11,3 +11,5 @@ add_dependencies(Polybench 3DCONV)
 add_dependencies(supported 3DCONV)
 
 add_test(Polybench_3DCONV 3DCONV)
+
+install(TARGETS 3DCONV DESTINATION)

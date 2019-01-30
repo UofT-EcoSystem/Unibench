@@ -11,3 +11,5 @@ add_dependencies(Polybench 2DCONV)
 add_dependencies(supported 2DCONV)
 
 add_test(Polybench_2DCONV 2DCONV)
+
+install(TARGETS 2DCONV DESTINATION)

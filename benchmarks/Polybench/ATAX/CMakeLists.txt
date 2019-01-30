@@ -11,3 +11,5 @@ add_dependencies(Polybench ATAX)
 #add_dependencies(supported ATAX)
 
 #add_test(Polybench_ATAX ATAX)
+
+install(TARGETS ATAX DESTINATION)
