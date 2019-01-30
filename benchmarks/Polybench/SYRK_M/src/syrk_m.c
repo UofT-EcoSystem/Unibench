@@ -126,6 +126,8 @@ int main() {
   double t_start, t_end;
   int fail = 0;
 
+  fprintf(stdout, "<< Symmetric rank-k operations modified >>\n");
+  
   init_arrays();
   t_start = rtclock();
   syrkGPU();
