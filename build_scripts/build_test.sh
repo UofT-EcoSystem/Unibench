@@ -20,11 +20,11 @@ fi
 BENCH_ROOT=`realpath $BENCH_ROOT`
 
 cd $BENCH_ROOT
-if test -d build-release
+if test -d build-test
 then
 	echo Build exists. Script will update existing build.  
 else 
-	mkdir build-release
+	mkdir build-test
 fi
 
 BENCH_BUILD=${BENCH_ROOT}/build-test
@@ -32,7 +32,6 @@ BENCH_SOURCE=${BENCH_ROOT}/Unibench
 BENCH_INSTALL=${BENCH_ROOT}/install-test
 
 cd $BENCH_BUILD
-echo ${BENCH_SOURCE}
 cmake -DCMAKE_INSTALL_PREFIX=${BENCH_INSTALL} \
 	-DCMAKE_C_COMPILER=clang \
 	-DCMAKE_CXX_COMPILER=clang++ \

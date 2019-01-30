@@ -20,11 +20,11 @@ fi
 BENCH_ROOT=`realpath $BENCH_ROOT`
 
 cd $BENCH_ROOT
-if test -d build-release
+if test -d build-debug
 then
 	echo Build exists. Script will update existing build.  
 else 
-	mkdir build-release
+	mkdir build-debug
 fi
 
 BENCH_BUILD=${BENCH_ROOT}/build-debug
