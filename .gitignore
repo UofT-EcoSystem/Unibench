@@ -11,6 +11,8 @@ myUnibench
 #Directories to ignore
 build/*
 build2/*
+build-release/*
+build-test/*
 log/*
 
 # Merge files created by git.
