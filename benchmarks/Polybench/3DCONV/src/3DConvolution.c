@@ -26,7 +26,9 @@
 #define ERROR_THRESHOLD 0.5
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 256
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -166,7 +168,7 @@ int main(int argc, char *argv[]) {
   B = (DATA_TYPE *)malloc(NI * NJ * NK * sizeof(DATA_TYPE));
   B_GPU = (DATA_TYPE *)malloc(NI * NJ * NK * sizeof(DATA_TYPE));
 
-  fprintf(stdout, ">> Three dimensional (3D) convolution <<\n");
+  fprintf(stdout, ">> Three dimensional (3D) convolution size: %d<<\n", SIZE);
 
   init(A);
 

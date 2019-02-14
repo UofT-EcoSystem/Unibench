@@ -24,7 +24,9 @@
 #define ERROR_THRESHOLD 1.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 2048
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600

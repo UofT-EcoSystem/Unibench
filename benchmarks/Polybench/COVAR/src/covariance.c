@@ -24,7 +24,9 @@
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 1.05
 
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 2048
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -164,7 +166,7 @@ int main() {
       (DATA_TYPE *)calloc((M + 1) * (M + 1), sizeof(DATA_TYPE));
   mean_GPU = (DATA_TYPE *)calloc((M + 1), sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Covariance Computation >>\n");
+  fprintf(stdout, "<< Covariance Computation size: %d>>\n", SIZE);
 
   init_arrays(data);
 

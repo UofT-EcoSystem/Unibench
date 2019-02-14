@@ -25,7 +25,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 10.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 2048
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -178,7 +180,7 @@ int main() {
   hz = (DATA_TYPE *)malloc(NX * NY * sizeof(DATA_TYPE));
   hz_outputFromGpu = (DATA_TYPE *)malloc(NX * NY * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< 2-D Finite Different Time Domain Kernel >>\n");
+  fprintf(stdout, "<< 2-D Finite Different Time Domain Kernel size: %d>>\n", SIZE);
 
   init_arrays(_fict_, ex, ey, hz);
   init_array_hz(hz_outputFromGpu);

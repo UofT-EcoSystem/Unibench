@@ -26,7 +26,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 512
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -138,7 +140,7 @@ int main(int argc, char *argv[]) {
   C_outputFromGpu = (DATA_TYPE *)calloc(NI * NJ, sizeof(DATA_TYPE));
   Cinit_outputFromGpu = (DATA_TYPE *)malloc(NI * NJ * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Matrix-multiply C=alpha.A.B+beta.C >>\n");
+  fprintf(stdout, "<< Matrix-multiply C=alpha.A.B+beta.C size: %d>>\n", SIZE);
 
   init(A, B, C, Cinit_outputFromGpu);
 

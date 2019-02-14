@@ -25,7 +25,9 @@
 #define ERROR_THRESHOLD 0.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 2048
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -158,8 +160,10 @@ int main(int argc, char **argv) {
   E = (DATA_TYPE *)calloc(NI * NL, sizeof(DATA_TYPE));
   E_GPU = (DATA_TYPE *)calloc(NI * NL, sizeof(DATA_TYPE));
 
-  fprintf(stdout,
-          "<< Linear Algebra: 2 Matrix Multiplications (D=A.B; E=C.D) >>\n");
+  fprintf(
+      stdout,
+      "<< Linear Algebra: 2 Matrix Multiplications (D=A.B; E=C.D) size: %d>>\n",
+      SIZE);
 
   init_array(A, B, C, D);
 

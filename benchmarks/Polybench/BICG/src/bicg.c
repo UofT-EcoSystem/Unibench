@@ -24,7 +24,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.7
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 4096
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -147,7 +149,7 @@ int main(int argc, char **argv) {
   s_GPU = (DATA_TYPE *)malloc(NY * sizeof(DATA_TYPE));
   q_GPU = (DATA_TYPE *)malloc(NX * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< BiCG Sub Kernel of BiCGStab Linear Solver >>\n");
+  fprintf(stdout, "<< BiCG Sub Kernel of BiCGStab Linear Solver size: %d>>\n", SIZE);
 
   init_array(A, p, r);
 
