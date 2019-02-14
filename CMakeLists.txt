@@ -22,6 +22,11 @@ if(RUN_BENCHMARK)
     add_definitions(-DRUN_BENCHMARK=1)
 endif()
 
+option(RUN_POLYBENCH_SIZE "Run with problem sizes in original polybench" OFF)
+if(RUN_POLYBENCH_SIZE)
+	add_definitions(-DRUN_POLYBENCH_SIZE=1)
+endif()
+
 use_c99()
 
 option(OMP_DISABLE "Disable OpenMP" OFF)
