@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "2MM"
+
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 0.05
 
@@ -115,7 +117,7 @@ void mm2_cpu(DATA_TYPE *A, DATA_TYPE *B, DATA_TYPE *C, DATA_TYPE *D,
 
 void mm2_OMP(DATA_TYPE *A, DATA_TYPE *B, DATA_TYPE *C, DATA_TYPE *D, DATA_TYPE *E) {
 
-#pragma omp target teams map(from: E[:NI*NL], C[:NI*NJ]) map(to: A[:NI*NK], B[:NK*NJ], D[:NJ*NL]) device(DEVICE_ID) 
+#pragma omp target teams map(from: E[:NI*NL], C[:NI*NJ]) map(to: A[:NI*NK], B[:NK*NJ], D[:NJ*NL]) device(DEVICE_ID)
   {
     #pragma omp distribute parallel for collapse(2)
     for (int i = 0; i < NI; i++) {
@@ -160,10 +162,11 @@ int main(int argc, char **argv) {
   E = (DATA_TYPE *)calloc(NI * NL, sizeof(DATA_TYPE));
   E_GPU = (DATA_TYPE *)calloc(NI * NL, sizeof(DATA_TYPE));
 
-  fprintf(
+  /*fprintf(
       stdout,
       "<< Linear Algebra: 2 Matrix Multiplications (D=A.B; E=C.D) size: %d>>\n",
-      SIZE);
+      SIZE);*/
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE); 
 
   init_array(A, B, C, D);
 

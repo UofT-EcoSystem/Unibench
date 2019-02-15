@@ -20,6 +20,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "CORR"
+
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 1.05
 
@@ -211,7 +213,8 @@ int main() {
   symmat = (DATA_TYPE *)malloc((M + 1) * (N + 1) * sizeof(DATA_TYPE));
   symmat_GPU = (DATA_TYPE *)malloc((M + 1) * (N + 1) * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Correlation Computation >>\n");
+  //fprintf(stdout, "<< Correlation Computation >>\n");
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_arrays(data);
 

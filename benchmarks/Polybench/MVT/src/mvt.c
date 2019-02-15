@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "MVT"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
@@ -77,7 +79,7 @@ void runMvt(DATA_TYPE *a, DATA_TYPE *x1, DATA_TYPE *x2, DATA_TYPE *y1,
 void runMvt_OMP(DATA_TYPE *a, DATA_TYPE *x1, DATA_TYPE *x2, DATA_TYPE *y1,
                 DATA_TYPE *y2) {
   int i, j;
-  #pragma omp target teams map(to: a[:N*N], y1[:N], y2[:N]) map(tofrom: x1[:N], x2[:N]) device(DEVICE_ID)                                                    
+  #pragma omp target teams map(to: a[:N*N], y1[:N], y2[:N]) map(tofrom: x1[:N], x2[:N]) device(DEVICE_ID)
   {
     #pragma omp distribute parallel for private(j)
     for (i = 0; i < N; i++) {
@@ -140,7 +142,8 @@ int main() {
   y_1 = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
   y_2 = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Matrix Vector Product and Transpose size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Matrix Vector Product and Transpose size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_array(a, x1, x2, y_1, y_2, x1_outputFromGpu, x2_outputFromGpu);
 

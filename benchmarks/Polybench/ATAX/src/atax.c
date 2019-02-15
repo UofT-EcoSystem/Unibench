@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "ATAX"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.5
 
@@ -136,7 +138,8 @@ int main(int argc, char **argv) {
   y_outputFromGpu = (DATA_TYPE *)malloc(NY * sizeof(DATA_TYPE));
   tmp = (DATA_TYPE *)malloc(NX * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Matrix Transpose and Vector Multiplication size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Matrix Transpose and Vector Multiplication size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_array(x, A);
 

@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "SYR2K"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.10
 
@@ -138,7 +140,8 @@ int main() {
   Cinit = (DATA_TYPE *)malloc(N * M * sizeof(DATA_TYPE));
   C_Gpu = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Symmetric rank-2k operations size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Symmetric rank-2k operations size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_arrays(A, B, Cinit);
 

@@ -22,6 +22,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "GEMM"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
@@ -140,7 +142,8 @@ int main(int argc, char *argv[]) {
   C_outputFromGpu = (DATA_TYPE *)calloc(NI * NJ, sizeof(DATA_TYPE));
   Cinit_outputFromGpu = (DATA_TYPE *)malloc(NI * NJ * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Matrix-multiply C=alpha.A.B+beta.C size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Matrix-multiply C=alpha.A.B+beta.C size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init(A, B, C, Cinit_outputFromGpu);
 

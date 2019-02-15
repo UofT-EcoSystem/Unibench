@@ -22,6 +22,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "3DCONV"
+
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 0.5
 
@@ -168,7 +170,8 @@ int main(int argc, char *argv[]) {
   B = (DATA_TYPE *)malloc(NI * NJ * NK * sizeof(DATA_TYPE));
   B_GPU = (DATA_TYPE *)malloc(NI * NJ * NK * sizeof(DATA_TYPE));
 
-  fprintf(stdout, ">> Three dimensional (3D) convolution size: %d<<\n", SIZE);
+  //fprintf(stdout, ">> Three dimensional (3D) convolution size: %d<<\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init(A);
 

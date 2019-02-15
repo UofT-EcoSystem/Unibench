@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "3MM"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
@@ -193,10 +195,11 @@ int main(int argc, char **argv) {
   F_outputFromGpu = (DATA_TYPE *)calloc(NJ * NL, sizeof(DATA_TYPE));
   G_outputFromGpu = (DATA_TYPE *)calloc(NI * NL, sizeof(DATA_TYPE));
 
-  fprintf(stdout,
+  /*fprintf(stdout,
           "<< Linear Algebra: 3 Matrix Multiplications (E=A.B; F=C.D; G=E.F) "
           "size: %d>>\n",
-          SIZE);
+          SIZE);*/
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_array(A, B, C, D);
 

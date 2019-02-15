@@ -22,6 +22,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "GESUMMV"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
@@ -126,7 +128,8 @@ int main(int argc, char *argv[]) {
   y_outputFromGpu = (DATA_TYPE *)calloc(N, sizeof(DATA_TYPE));
   tmp = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Scalar, Vector and Matrix Multiplication size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Scalar, Vector and Matrix Multiplication size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init(A, x);
 

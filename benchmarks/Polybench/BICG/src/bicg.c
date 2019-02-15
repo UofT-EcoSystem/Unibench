@@ -20,6 +20,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "BICG"
+
 // Error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.7
 
@@ -149,7 +151,8 @@ int main(int argc, char **argv) {
   s_GPU = (DATA_TYPE *)malloc(NY * sizeof(DATA_TYPE));
   q_GPU = (DATA_TYPE *)malloc(NX * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< BiCG Sub Kernel of BiCGStab Linear Solver size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< BiCG Sub Kernel of BiCGStab Linear Solver size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_array(A, p, r);
 

@@ -17,6 +17,8 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+#define BENCHMARK_NAME "SYRK"
+
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 0.05
 
@@ -139,7 +141,8 @@ int main() {
   D1 = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
   D2 = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Symmetric rank-k operations size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Symmetric rank-k operations size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_arrays(A, C, Dinit);
   syrkGPU(A, Dinit, D1, D2);

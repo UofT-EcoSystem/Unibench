@@ -21,6 +21,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "COVAR"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 1.05
 
@@ -166,7 +168,8 @@ int main() {
       (DATA_TYPE *)calloc((M + 1) * (M + 1), sizeof(DATA_TYPE));
   mean_GPU = (DATA_TYPE *)calloc((M + 1), sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Covariance Computation size: %d>>\n", SIZE);
+  //fprintf(stdout, "<< Covariance Computation size: %d>>\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_arrays(data);
 

@@ -23,6 +23,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "GRAMSCHM"
+
 // define the error threshold for the results "not matching"
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
@@ -82,7 +84,7 @@ void gramschmidt_OMP(DATA_TYPE *A, DATA_TYPE *R, DATA_TYPE *Q) {
         nrm += A[i * N + k] * A[i * N + k];
       }
       R[k * N + k] = sqrt(nrm);
-      
+
       for (i = 0; i < M; i++) {
         Q[i * N + k] = A[i * N + k] / R[k * N + k];
       }
@@ -149,7 +151,8 @@ int main(int argc, char *argv[]) {
   R = (DATA_TYPE *)malloc(M * N * sizeof(DATA_TYPE));
   Q = (DATA_TYPE *)malloc(M * N * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Gram-Schmidt decomposition >>\n");
+  //fprintf(stdout, "<< Gram-Schmidt decomposition >>\n");
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE);
 
   init_array(A, A_outputFromGpu);
 
