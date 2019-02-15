@@ -22,6 +22,8 @@
 
 #include "BenchmarksUtil.h"
 
+#define BENCHMARK_NAME "2DCONV"
+
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 0.05
 
@@ -138,7 +140,8 @@ int main(int argc, char *argv[]) {
   B = (DATA_TYPE *)malloc(NI * NJ * sizeof(DATA_TYPE));
   B_OMP = (DATA_TYPE *)malloc(NI * NJ * sizeof(DATA_TYPE));
 
-  fprintf(stdout, ">> Two dimensional (2D) convolution : size %d<<\n", SIZE);
+  //fprintf(stdout, ">> Two dimensional (2D) convolution : size %d<<\n", SIZE);
+  printBenchmarkInfo(BENCHMARK_NAME, SIZE); 
 
   // initialize the arrays
   init(A);

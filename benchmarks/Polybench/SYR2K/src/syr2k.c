@@ -25,7 +25,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.10
 
 /* Problem size */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 2048
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -136,7 +138,7 @@ int main() {
   Cinit = (DATA_TYPE *)malloc(N * M * sizeof(DATA_TYPE));
   C_Gpu = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Symmetric rank-2k operations >>\n");
+  fprintf(stdout, "<< Symmetric rank-2k operations size: %d>>\n", SIZE);
 
   init_arrays(A, B, Cinit);
 

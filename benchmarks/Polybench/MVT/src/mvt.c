@@ -25,7 +25,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 4096
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -138,7 +140,7 @@ int main() {
   y_1 = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
   y_2 = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Matrix Vector Product and Transpose >>\n");
+  fprintf(stdout, "<< Matrix Vector Product and Transpose size: %d>>\n", SIZE);
 
   init_array(a, x1, x2, y_1, y_2, x1_outputFromGpu, x2_outputFromGpu);
 

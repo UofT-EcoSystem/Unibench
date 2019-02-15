@@ -20,7 +20,9 @@
 // define the error threshold for the results "not matching"
 #define ERROR_THRESHOLD 0.05
 
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 1024
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -137,7 +139,7 @@ int main() {
   D1 = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
   D2 = (DATA_TYPE *)calloc(N * M, sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Symmetric rank-k operations >>\n");
+  fprintf(stdout, "<< Symmetric rank-k operations size: %d>>\n", SIZE);
 
   init_arrays(A, C, Dinit);
   syrkGPU(A, Dinit, D1, D2);

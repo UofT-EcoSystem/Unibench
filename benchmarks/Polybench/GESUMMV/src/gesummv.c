@@ -26,7 +26,9 @@
 #define PERCENT_DIFF_ERROR_THRESHOLD 0.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 4096
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -124,7 +126,7 @@ int main(int argc, char *argv[]) {
   y_outputFromGpu = (DATA_TYPE *)calloc(N, sizeof(DATA_TYPE));
   tmp = (DATA_TYPE *)malloc(N * sizeof(DATA_TYPE));
 
-  fprintf(stdout, "<< Scalar, Vector and Matrix Multiplication >>\n");
+  fprintf(stdout, "<< Scalar, Vector and Matrix Multiplication size: %d>>\n", SIZE);
 
   init(A, x);
 

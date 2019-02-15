@@ -22,7 +22,9 @@
 #define ERROR_THRESHOLD 0.05
 
 /* Problem size. */
-#ifdef RUN_TEST
+#ifdef RUN_POLYBENCH_SIZE
+#define SIZE 1024
+#elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
 #define SIZE 9600
@@ -126,7 +128,7 @@ int main() {
   double t_start, t_end;
   int fail = 0;
 
-  fprintf(stdout, "<< Symmetric rank-k operations modified >>\n");
+  fprintf(stdout, "<< Symmetric rank-k operations modified size: %d>>\n", SIZE);
   
   init_arrays();
   t_start = rtclock();

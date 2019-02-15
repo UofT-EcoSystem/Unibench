@@ -43,4 +43,8 @@ float percentDiff(double val1, double val2) {
   }
 }
 
+void printBenchmarkInfo(const char *name, int size) {
+    fprintf(stdout, "<< %s : %d >>\n", name, size); 
+}
+
 #endif // BENCHMARKS_UTIL_H
