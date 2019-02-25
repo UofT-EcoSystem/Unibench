@@ -28,7 +28,7 @@
 
 /* Problem size. */
 #ifdef RUN_POLYBENCH_SIZE
-#define SIZE 4096
+#define SIZE  16384 //4096
 #elif RUN_TEST
 #define SIZE 1100
 #elif RUN_BENCHMARK
