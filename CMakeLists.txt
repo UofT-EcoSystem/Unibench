@@ -40,8 +40,14 @@ if(NOT OMP_DISABLE)
 endif()
 
 # Set OMP target flags
-set(OMP_TARGETS "nvptx64")
-set(OMP_OFFLOAD_FLAGS "-fopenmp-targets=${OMP_TARGETS} --target=x86_64-unknown-linux-gnu")
+option(OMP_GPU_OFFLOAD "use gpu as accelerator" ON)
+if(OMP_GPU_OFFLOAD) 
+	set(OMP_TARGETS "nvptx64")
+	set(OMP_OFFLOAD_FLAGS "-fopenmp-targets=${OMP_TARGETS} --target=x86_64-unknown-linux-gnu")
+else()
+	set(OMP_TARGETS "x86_64-unknown-linux-gnu")
+	set(OMP_OFFLOAD_FLAGS "-fopenmp-targets=${OMP_TARGETS} --target=x86_64-unknown-linux-gnu")
+endif()
 
 option(OMP_OFFLOAD "Offload to accelerator" ON)
 if(OMP_OFFLOAD AND OPENMP_FOUND)
