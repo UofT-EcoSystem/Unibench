@@ -114,7 +114,12 @@ void covariance_OMP(DATA_TYPE *data, DATA_TYPE *data2, DATA_TYPE *symmat,
 
 /* Determine mean of column vectors of input data matrix */
 
-  #pragma omp target  data map(to: data[:(M+1)*(N+1)]) map(alloc: mean[:(M+1)]) map(tofrom: symmat[:(M+1)*(N+1)]) device(DEVICE_ID)
+  #pragma omp target  \
+   data map(to: data[:(M+1)*(N+1)]) \
+        map(alloc: data2[:(M+1)*(N+1)]) \
+        map(alloc: mean[:(M+1)]) \
+        map(tofrom: symmat[:(M+1)*(N+1)]) \
+   device(DEVICE_ID)
   {
     #pragma omp target teams distribute parallel for device(DEVICE_ID)
     for (int j = 1; j < (M + 1); j++) {
