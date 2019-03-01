@@ -20,11 +20,11 @@ fi
 BENCH_ROOT=`realpath $BENCH_ROOT`
 
 cd $BENCH_ROOT
-if test -d build-debug
+if test -d cpu-build-debug
 then
 	echo Build exists. Script will update existing build.  
 else 
-	mkdir build-debug
+	mkdir cpu-build-debug
 fi
 
 BENCH_BUILD=${BENCH_ROOT}/cpu-build-debug

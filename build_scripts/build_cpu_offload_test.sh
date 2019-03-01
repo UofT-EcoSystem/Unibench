@@ -20,11 +20,11 @@ fi
 BENCH_ROOT=`realpath $BENCH_ROOT`
 
 cd $BENCH_ROOT
-if test -d build-test
+if test -d cpu-build-test
 then
 	echo Build exists. Script will update existing build.  
 else 
-	mkdir build-test
+	mkdir cpu-build-test
 fi
 
 BENCH_BUILD=${BENCH_ROOT}/cpu-build-test
@@ -36,7 +36,6 @@ cmake -DCMAKE_INSTALL_PREFIX=${BENCH_INSTALL} \
 	-DCMAKE_C_COMPILER=clang \
 	-DCMAKE_CXX_COMPILER=clang++ \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_C_FLAGS="-D__NO_MATH_INLINES -U__SSE2_MATH__ -U__SSE_MATH__":${CMAKE_C_FLAGS} \
 	-DRUN_TEST=1 \
 	-DRUN_POLYBENCH_SIZE=1 \
 	-DOMP_GPU_OFFLOAD=0 ${BENCH_SOURCE}
